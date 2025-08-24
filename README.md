@@ -100,31 +100,45 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## 📤 Deployment
 
-### Cloudflare Pages (Recommended)
+### Vercel (Recommended)
 
 1. **Connect Repository**
-   - Go to Cloudflare Pages dashboard
-   - Connect your Git repository
-   - Select the repository and branch
+   - Go to [Vercel](https://vercel.com)
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js settings
 
-2. **Build Settings**
+2. **Environment Variables**
+   Add your environment variables in the Vercel dashboard:
    ```
-   Build command: npm run build
-   Build output directory: .next
-   Node.js version: 18+
+   RESEND_API_KEY=your_api_key
+   SALON_EMAIL_TO=owner@clipperz.com
+   SALON_EMAIL_FROM=booking@clipperz.com
+   SALON_PHONE=+1 (555) 123-4567
+   SALON_ADDRESS=123 Main Street, Anytown, ST 12345
+   SALON_WHATSAPP_URL=https://wa.me/15551234567
    ```
 
-3. **Environment Variables**
-   Add all your environment variables from `.env.local` to the Cloudflare Pages environment settings.
-
-4. **Custom Domain**
-   - Add your custom domain in Cloudflare Pages
-   - Update `baseUrl` in `app/sitemap.ts` and `lib/seo.ts`
+3. **Deploy**
+   - Click Deploy
+   - Your site will be live with a vercel.app domain
+   - Add custom domain in settings if needed
 
 ### Alternative Deployment Options
-- **Vercel**: Zero-config deployment with Git integration
-- **Netlify**: Continuous deployment from Git
-- **Traditional hosting**: Build static files with `npm run build`
+
+#### Cloudflare Pages (Static Only)
+- **Note**: API routes won't work due to file size limits
+- Best for static version without booking functionality
+- Build output directory: `out`
+- Requires static export configuration
+
+#### Netlify
+- Zero-config deployment with Git integration
+- Supports serverless functions
+- Environment variables in site settings
+
+#### Traditional Hosting
+- Build static files with `npm run build`
+- Upload the `.next` folder to your hosting provider
 
 ## 🎯 Booking Flow
 

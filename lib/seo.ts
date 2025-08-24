@@ -19,6 +19,7 @@ export function generateMetadata({
   noIndex?: boolean
 } = {}): Metadata {
   return {
+    metadataBase: new URL(siteConfig.url),
     title: title ? `${title} | ${siteConfig.name}` : siteConfig.name,
     description: description || siteConfig.description,
     keywords: [
