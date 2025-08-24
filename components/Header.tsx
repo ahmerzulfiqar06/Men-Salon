@@ -20,6 +20,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,13 +33,43 @@ export default function Header() {
 
   const closeMenu = () => setIsOpen(false)
 
+  // Determine header styling based on page and scroll state
+  const getHeaderStyle = () => {
+    if (isHomePage) {
+      // Homepage: transparent until scrolled
+      return isScrolled
+        ? 'bg-white/95 backdrop-blur-sm shadow-lg'
+        : 'bg-transparent'
+    } else {
+      // Other pages: always have background
+      return 'bg-white shadow-lg'
+    }
+  }
+
+  // Determine text color based on page and scroll state
+  const getTextColor = () => {
+    if (isHomePage) {
+      // Homepage: white text until scrolled
+      return isScrolled ? 'text-gray-900' : 'text-white'
+    } else {
+      // Other pages: always dark text
+      return 'text-gray-900'
+    }
+  }
+
+  const getPhoneTextColor = () => {
+    if (isHomePage) {
+      return isScrolled ? 'text-gray-600' : 'text-white/90'
+    } else {
+      return 'text-gray-600'
+    }
+  }
+
   return (
     <header
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-lg'
-          : 'bg-transparent'
+        getHeaderStyle()
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,9 +92,7 @@ export default function Header() {
                   'text-sm font-medium transition-colors hover:text-amber-500',
                   pathname === item.href
                     ? 'text-amber-500'
-                    : isScrolled
-                    ? 'text-gray-900'
-                    : 'text-white'
+                    : getTextColor()
                 )}
               >
                 {item.name}
@@ -75,7 +104,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm">
               <Phone className="h-4 w-4" />
-              <span className={isScrolled ? 'text-gray-600' : 'text-white/90'}>
+              <span className={getPhoneTextColor()}>
                 {process.env.NEXT_PUBLIC_SALON_PHONE || '(555) 123-4567'}
               </span>
             </div>
