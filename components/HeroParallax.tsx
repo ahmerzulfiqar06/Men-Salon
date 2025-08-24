@@ -1,15 +1,42 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useEffect, useState, useRef } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
 
+interface HeroImage {
+  src: string
+  alt: string
+}
+
+const heroImages: HeroImage[] = [
+  {
+    src: '/images/barber-chair-hero.jpg',
+    alt: 'Professional barber chair in modern salon'
+  },
+  {
+    src: '/images/salon-interior-1.jpg',
+    alt: 'Modern salon interior with professional equipment'
+  },
+  {
+    src: '/images/professional-tools.jpg',
+    alt: 'Professional barbering tools and equipment'
+  },
+  {
+    src: '/images/salon-exterior.jpg',
+    alt: 'CLIPPERZ salon exterior view'
+  }
+]
+
 export default function HeroParallax() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState<boolean>(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
+  const [isPaused, setIsPaused] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -21,6 +48,19 @@ export default function HeroParallax() {
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Auto-cycle through images
+  useEffect(() => {
+    if (!mounted || isPaused) return
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex: number) => 
+        (prevIndex + 1) % heroImages.length
+      )
+    }, 5000) // Change image every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [mounted, isPaused])
 
   if (!mounted) {
     return (
@@ -41,22 +81,58 @@ export default function HeroParallax() {
   }
 
   return (
-    <div ref={containerRef} className="relative h-screen overflow-hidden">
-      {/* Background Image with Parallax */}
+    <div 
+      ref={containerRef} 
+      className="relative h-screen overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Images with Parallax and Transitions */}
       <motion.div
         style={{ y }}
         className="absolute inset-0 w-full h-[120%]"
       >
-        <Image
-          src="/images/barber-chair-hero.jpg"
-          alt="Professional barber chair in modern salon"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ 
+              duration: 1.5,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src={heroImages[currentImageIndex].src}
+              alt={heroImages[currentImageIndex].alt}
+              fill
+              className="object-cover"
+              priority={currentImageIndex === 0}
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
+        
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
+        
+        {/* Image Indicators */}
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+          {heroImages.map((_, index: number) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentImageIndex 
+                  ? 'bg-amber-500 scale-125' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`View image ${index + 1}`}
+            />
+          ))}
+        </div>
       </motion.div>
 
       {/* Content */}
@@ -65,6 +141,7 @@ export default function HeroParallax() {
         className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4"
       >
         <motion.div
+          key={`content-${currentImageIndex}`}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -90,17 +167,35 @@ export default function HeroParallax() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="text-lg px-8 py-4" asChild>
-              <Link href="/book">Book Appointment</Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white hover:bg-white/20" 
-              asChild
+            <motion.div
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <Link href="/services">View Services</Link>
-            </Button>
+              <Button size="lg" className="text-lg px-8 py-4 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold" asChild>
+                <Link href="/book">Book Appointment</Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white hover:bg-white/20 font-semibold" 
+                asChild
+              >
+                <Link href="/services">View Services</Link>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
 

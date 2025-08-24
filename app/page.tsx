@@ -369,17 +369,35 @@ export default function HomePage() {
               Professional service, exceptional results.
             </motion.p>
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-4" asChild>
-                <Link href="/book">Book Now</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-gray-900" 
-                asChild
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(245, 158, 11, 0.4)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Link href="/contact">Call Us</Link>
-              </Button>
+                <Button size="lg" className="text-lg px-8 py-4 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold" asChild>
+                  <Link href="/book">Book Now</Link>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-lg px-8 py-4 border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 bg-transparent font-semibold" 
+                  asChild
+                >
+                  <Link href="/contact">Call Us</Link>
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
