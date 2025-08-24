@@ -1,0 +1,57 @@
+# Image Placeholders for CLIPPERZ Salon
+
+This directory should contain the following images:
+
+## Hero & Main Images
+- barber-chair-hero.jpg (1920x1080) - Main hero image with professional barber chair
+- salon-exterior.jpg (1200x800) - Exterior view of the salon
+- salon-story.jpg (1200x800) - Image for about page story section
+
+## Services Images
+- classic-cut.jpg (600x400) - Classic haircut service
+- premium-cut.jpg (600x400) - Premium cut and style service
+- beard-trim.jpg (600x400) - Beard trimming service
+- hot-towel-shave.jpg (600x400) - Hot towel shave service
+- cut-and-beard.jpg (600x400) - Combined cut and beard service
+- head-shave.jpg (600x400) - Head shave service
+- eyebrow-trim.jpg (600x400) - Eyebrow trimming service
+- deluxe-package.jpg (600x400) - Deluxe package service
+
+## Package Images
+- essential-package.jpg (600x400) - Essential package
+- gentleman-package.jpg (600x400) - Gentleman package
+- executive-package.jpg (600x400) - Executive package
+
+## Team Images
+- barber-mike.jpg (400x400) - Mike Rodriguez, Master Barber
+- barber-david.jpg (400x400) - David Chen, Senior Barber
+- barber-alex.jpg (400x400) - Alex Thompson, Barber Stylist
+- barber-james.jpg (400x400) - James Wilson, Junior Barber
+
+## Testimonial Images
+- testimonial-1.jpg (150x150) - Customer testimonial photo
+- testimonial-2.jpg (150x150) - Customer testimonial photo
+- testimonial-3.jpg (150x150) - Customer testimonial photo
+
+## Interior & Gallery Images
+- salon-interior-1.jpg (800x600) - Modern salon interior with barber chairs
+- salon-interior-2.jpg (800x600) - Professional styling stations
+- salon-interior-3.jpg (800x600) - Comfortable waiting area
+- salon-interior-4.jpg (800x600) - Private consultation area
+- salon-tools.jpg (800x600) - Professional barbering tools
+- salon-products.jpg (800x600) - Premium hair care products
+- professional-tools.jpg (800x600) - Professional equipment and hygiene
+
+## SEO & Meta Images
+- og-image.jpg (1200x630) - Open Graph image for social media sharing
+
+All images should be optimized for web use and include appropriate alt text for accessibility.
+For development, you can use placeholder images from Unsplash or similar services.
+
+Recommended search terms for stock photos:
+- "professional barber shop interior"
+- "men's haircut salon"
+- "barber cutting hair"
+- "professional barber tools"
+- "modern barbershop"
+- "men's grooming salon"
