@@ -122,7 +122,7 @@ export default function BookPage() {
                 {
                   step: '2',
                   title: 'Confirmation',
-                  description: 'We\'ll confirm your appointment within 24 hours'
+                  description: 'We&apos;ll confirm your appointment within 24 hours'
                 },
                 {
                   step: '3',
@@ -160,7 +160,7 @@ export default function BookPage() {
               Need Help?
             </h2>
             <p className="text-gray-600 mb-6">
-              If you have questions or need assistance with your booking, we're here to help.
+              If you have questions or need assistance with your booking, we&apos;re here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

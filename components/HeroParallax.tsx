@@ -30,7 +30,7 @@ export default function HeroParallax() {
             Welcome to <span className="text-amber-500">CLIPPERZ</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Experience the finest in men's grooming with our expert barbers and premium services
+            Experience the finest in men&apos;s grooming with our expert barbers and premium services
           </p>
           <Button size="lg" asChild>
             <Link href="/book">Book Your Appointment</Link>
@@ -80,7 +80,7 @@ export default function HeroParallax() {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Experience the finest in men's grooming with our expert barbers, 
+            Experience the finest in men&apos;s grooming with our expert barbers, 
             premium services, and modern atmosphere
           </motion.p>
 

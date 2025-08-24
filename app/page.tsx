@@ -43,7 +43,7 @@ const testimonials = [
   {
     name: 'Michael Johnson',
     rating: 5,
-    text: 'Best haircut I\'ve had in years! The attention to detail is incredible.',
+    text: 'Best haircut I&apos;ve had in years! The attention to detail is incredible.',
     image: '/images/testimonial-1.jpg'
   },
   {
@@ -240,7 +240,7 @@ export default function HomePage() {
               What Our Clients Say
             </motion.h2>
             <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it - hear from our satisfied customers
+              Don&apos;t just take our word for it - hear from our satisfied customers
             </motion.p>
           </motion.div>
 
@@ -260,7 +260,7 @@ export default function HomePage() {
                         <Star key={i} className="h-5 w-5 text-amber-400 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
+                    <p className="text-gray-600 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
                     <div className="flex items-center">
                       <div className="relative h-12 w-12 mr-4">
                         <Image

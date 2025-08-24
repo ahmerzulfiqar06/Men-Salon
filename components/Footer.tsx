@@ -42,7 +42,7 @@ export default function Footer() {
               CLIPPERZ
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
-              Professional men's salon and barber shop providing expert cuts, 
+              Professional men&apos;s salon and barber shop providing expert cuts, 
               premium service, and modern style in a comfortable environment.
             </p>
             

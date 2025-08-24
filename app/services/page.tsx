@@ -176,7 +176,7 @@ export default function ServicesPage() {
                   <p className="text-gray-600 mb-6">{service.description}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">What&apos;s Included:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">

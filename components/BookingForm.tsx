@@ -136,7 +136,7 @@ export default function BookingForm() {
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Booking Confirmed!</h2>
           <p className="text-lg text-gray-600 mb-6">
-            Thank you for your booking request. We'll contact you within 24 hours to confirm your appointment.
+            Thank you for your booking request. We&apos;ll contact you within 24 hours to confirm your appointment.
           </p>
         </div>
 
@@ -385,7 +385,7 @@ export default function BookingForm() {
       </Button>
 
       <p className="text-sm text-gray-600 text-center">
-        We'll contact you within 24 hours to confirm your appointment details.
+        We&apos;ll contact you within 24 hours to confirm your appointment details.
       </p>
     </form>
   )

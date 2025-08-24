@@ -114,7 +114,7 @@ export default function AboutPage() {
               and modern techniques.
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              What started as a single chair operation has grown into the city's 
+              What started as a single chair operation has grown into the city&apos;s 
               premier destination for discerning gentlemen who appreciate quality, 
               precision, and personalized service.
             </p>
@@ -357,9 +357,9 @@ export default function AboutPage() {
           <motion.div variants={itemVariants} className="bg-gray-900 text-white rounded-2xl p-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              "To provide every client with an exceptional grooming experience that combines 
+              &ldquo;To provide every client with an exceptional grooming experience that combines 
               time-honored barbering traditions with modern techniques, premium products, 
-              and personalized service in a welcoming, comfortable environment."
+              and personalized service in a welcoming, comfortable environment.&rdquo;
             </p>
             <div className="mt-8 text-amber-500 font-semibold">
               - Mike Rodriguez, Founder & Master Barber

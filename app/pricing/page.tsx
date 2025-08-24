@@ -259,7 +259,7 @@ export default function PricingPage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Confirmation</h4>
                     <p className="text-gray-600 text-sm">
-                      All appointments will be confirmed within 24 hours of booking. You'll receive email confirmation and calendar invitation.
+                      All appointments will be confirmed within 24 hours of booking. You&apos;ll receive email confirmation and calendar invitation.
                     </p>
                   </div>
                   <div>
@@ -358,7 +358,7 @@ export default function PricingPage() {
               Ready to Experience CLIPPERZ?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Book your preferred package today and discover why we're the city's premier men's salon
+              Book your preferred package today and discover why we&apos;re the city&apos;s premier men&apos;s salon
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8 py-4" asChild>

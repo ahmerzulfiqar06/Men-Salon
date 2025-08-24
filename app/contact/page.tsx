@@ -119,7 +119,7 @@ export default function ContactPage() {
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get in touch with us for appointments, questions, or just to say hello. 
-            We're here to help make your grooming experience exceptional.
+            We&apos;re here to help make your grooming experience exceptional.
           </motion.p>
         </motion.div>
 
@@ -176,9 +176,9 @@ export default function ContactPage() {
                       className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center"
                     >
                       <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                      <p className="text-green-800">
-                        Thank you for your message! We'll get back to you within 24 hours.
-                      </p>
+                                        <p className="text-green-800">
+                    Thank you for your message! We&apos;ll get back to you within 24 hours.
+                  </p>
                     </motion.div>
                   )}
 
