@@ -1,7 +1,13 @@
 import { Resend } from 'resend'
 import { BookingFormData, ContactFormData } from './validations'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY environment variable is required')
+  }
+  return new Resend(apiKey)
+}
 
 export async function sendBookingEmail(data: BookingFormData) {
   const {
@@ -112,6 +118,8 @@ export async function sendBookingEmail(data: BookingFormData) {
   `
 
   try {
+    const resend = getResendClient()
+    
     // Send email to salon owner
     await resend.emails.send({
       from: process.env.SALON_EMAIL_FROM!,
@@ -180,6 +188,8 @@ export async function sendContactEmail(data: ContactFormData) {
   `
 
   try {
+    const resend = getResendClient()
+    
     await resend.emails.send({
       from: process.env.SALON_EMAIL_FROM!,
       to: process.env.SALON_EMAIL_TO!,
