@@ -41,6 +41,7 @@ A modern, mobile-first marketing website for men's salon/barber shops with email
 
 - **`/`** - Home with parallax hero, services preview, pricing highlight, testimonials
 - **`/services`** - Service grid with duration & pricing, book CTAs
+- **`/shop`** - E-commerce style product catalog with men's grooming products
 - **`/pricing`** - 3 packages + add-ons, policies, payment info
 - **`/about`** - Story, team profiles, hygiene standards, gallery
 - **`/contact`** - Contact form, map, hours, WhatsApp integration

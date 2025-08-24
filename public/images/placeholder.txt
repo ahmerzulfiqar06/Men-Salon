@@ -42,6 +42,32 @@ This directory should contain the following images:
 - salon-products.jpg (800x600) - Premium hair care products
 - professional-tools.jpg (800x600) - Professional equipment and hygiene
 
+## Shop Product Images
+- products/hair-pomade.jpg (400x400) - Premium hair pomade jar
+- products/volumizing-shampoo.jpg (400x400) - Professional shampoo bottle
+- products/hair-conditioner.jpg (400x400) - Hair conditioner bottle
+- products/texture-spray.jpg (400x400) - Hair texture spray bottle
+- products/hair-wax.jpg (400x400) - Hair styling wax container
+- products/hair-tonic.jpg (400x400) - Hair tonic bottle
+- products/dry-shampoo.jpg (400x400) - Dry shampoo spray can
+- products/heat-protection.jpg (400x400) - Heat protection spray
+- products/beard-oil.jpg (400x400) - Premium beard oil bottle
+- products/beard-balm.jpg (400x400) - Beard balm tin container
+- products/beard-wash.jpg (400x400) - Beard shampoo bottle
+- products/mustache-wax.jpg (400x400) - Mustache wax tin
+- products/beard-growth.jpg (400x400) - Beard growth serum bottle
+- products/beard-comb.jpg (400x400) - Wooden beard comb
+- products/face-moisturizer.jpg (400x400) - Men's face moisturizer
+- products/face-wash.jpg (400x400) - Face cleanser bottle
+- products/eye-cream.jpg (400x400) - Anti-aging eye cream
+- products/face-scrub.jpg (400x400) - Exfoliating face scrub
+- products/aftershave-balm.jpg (400x400) - Aftershave balm bottle
+- products/hair-dryer.jpg (400x400) - Professional hair dryer
+- products/beard-trimmer.jpg (400x400) - Electric beard trimmer kit
+- products/styling-brush.jpg (400x400) - Round styling brush
+- products/shaving-kit.jpg (400x400) - Luxury shaving kit set
+- products/toiletry-bag.jpg (400x400) - Leather toiletry bag
+
 ## SEO & Meta Images
 - og-image.jpg (1200x630) - Open Graph image for social media sharing
 
@@ -55,3 +81,9 @@ Recommended search terms for stock photos:
 - "professional barber tools"
 - "modern barbershop"
 - "men's grooming salon"
+- "men's hair pomade product"
+- "beard oil bottle"
+- "men's skincare products"
+- "barber tools and accessories"
+- "luxury shaving kit"
+- "men's grooming products"
