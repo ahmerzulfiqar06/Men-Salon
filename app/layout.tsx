@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageLoader from '@/components/PageLoader'
 import PageTransition from '@/components/PageTransition'
+import WhatsAppButton from '@/components/WhatsAppButton'
 import { generateMetadata, generateLocalBusinessJsonLd } from '@/lib/seo'
 import './globals.css'
 
@@ -19,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -33,6 +38,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   )
