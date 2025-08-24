@@ -361,17 +361,35 @@ export default function PricingPage() {
               Book your preferred package today and discover why we&apos;re the city&apos;s premier men&apos;s salon
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-4" asChild>
-                <Link href="/book">Book Now</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-amber-600" 
-                asChild
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Link href="/contact">Contact Us</Link>
-              </Button>
+                <Button size="lg" variant="secondary" className="text-lg px-8 py-4 bg-white text-amber-600 hover:bg-gray-100 font-semibold" asChild>
+                  <Link href="/book">Book Now</Link>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-amber-600 bg-transparent font-semibold" 
+                  asChild
+                >
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>

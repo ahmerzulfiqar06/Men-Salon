@@ -28,6 +28,14 @@ const heroImages: HeroImage[] = [
   {
     src: '/images/salon-exterior.jpg',
     alt: 'CLIPPERZ salon exterior view'
+  },
+  {
+    src: '/images/modern-salon-interior.jpg',
+    alt: 'Luxury modern salon interior design'
+  },
+  {
+    src: '/images/salon-interior-2.jpg',
+    alt: 'Premium barbershop styling stations'
   }
 ]
 
@@ -57,7 +65,7 @@ export default function HeroParallax() {
       setCurrentImageIndex((prevIndex: number) => 
         (prevIndex + 1) % heroImages.length
       )
-    }, 5000) // Change image every 5 seconds
+    }, 6000) // Change image every 6 seconds for more viewing time
 
     return () => clearInterval(interval)
   }, [mounted, isPaused])
@@ -95,12 +103,24 @@ export default function HeroParallax() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            initial={{ 
+              opacity: 0, 
+              scale: 1.2,
+              filter: "blur(20px) brightness(0.3)"
+            }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1,
+              filter: "blur(0px) brightness(1)"
+            }}
+            exit={{ 
+              opacity: 0, 
+              scale: 0.8,
+              filter: "blur(10px) brightness(0.7)"
+            }}
             transition={{ 
-              duration: 1.5,
-              ease: [0.25, 0.46, 0.45, 0.94]
+              duration: 2,
+              ease: [0.16, 1, 0.3, 1] // Modern easing curve
             }}
             className="absolute inset-0 w-full h-full"
           >
