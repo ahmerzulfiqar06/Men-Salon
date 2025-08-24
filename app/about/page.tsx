@@ -110,7 +110,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-xl text-gray-600 mb-6">
               Founded in 2008, CLIPPERZ has been dedicated to providing exceptional 
-              men's grooming services with a perfect blend of traditional craftsmanship 
+              men&apos;s grooming services with a perfect blend of traditional craftsmanship 
               and modern techniques.
             </p>
             <p className="text-lg text-gray-600 mb-8">

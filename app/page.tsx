@@ -197,7 +197,7 @@ export default function HomePage() {
               Affordable Excellence
             </motion.h2>
             <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              Premium grooming services at competitive prices. Quality you can trust, value you'll appreciate.
+              Premium grooming services at competitive prices. Quality you can trust, value you&apos;ll appreciate.
             </motion.p>
 
             <motion.div variants={itemVariants} className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">

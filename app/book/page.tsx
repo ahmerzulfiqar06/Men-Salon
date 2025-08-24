@@ -59,7 +59,7 @@ export default function BookPage() {
             Book Your Appointment
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose your service, preferred time, and barber. We'll confirm your appointment 
+            Choose your service, preferred time, and barber. We&apos;ll confirm your appointment 
             within 24 hours and send you a calendar invitation.
           </motion.p>
         </motion.div>
