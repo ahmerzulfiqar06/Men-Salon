@@ -117,7 +117,7 @@ export default function PricingPage() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 pt-6"
         >
           {packages.map((pkg, index) => (
             <motion.div key={pkg.name} variants={itemVariants}>
@@ -127,8 +127,8 @@ export default function PricingPage() {
                   : 'hover:shadow-lg'
               } transition-all duration-300`}>
                 {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-amber-500 text-white text-sm font-bold px-6 py-2 rounded-full">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-amber-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg">
                       Most Popular
                     </div>
                   </div>
@@ -383,8 +383,7 @@ export default function PricingPage() {
               >
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-amber-600 bg-transparent font-semibold" 
+                  className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-amber-600 bg-transparent font-semibold transition-all duration-200" 
                   asChild
                 >
                   <Link href="/contact">Contact Us</Link>

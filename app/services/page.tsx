@@ -271,8 +271,7 @@ export default function ServicesPage() {
               >
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-amber-600 bg-transparent font-semibold" 
+                  className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-amber-600 bg-transparent font-semibold transition-all duration-200" 
                   asChild
                 >
                   <Link href="/contact">Ask Questions</Link>
