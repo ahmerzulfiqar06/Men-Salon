@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Star, Filter, Grid, List, ShoppingCart, Heart, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -35,7 +36,7 @@ const products = [
     originalPrice: 29.99,
     rating: 4.8,
     reviews: 127,
-    image: '/images/products/hair-pomade.jpg',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
     description: 'Strong hold, matte finish pomade perfect for modern hairstyles. Long-lasting formula.',
     featured: true,
     bestseller: true,
@@ -48,7 +49,7 @@ const products = [
     price: 18.50,
     rating: 4.6,
     reviews: 89,
-    image: '/images/products/volumizing-shampoo.jpg',
+    image: 'https://images.unsplash.com/photo-1556228852-6d35a8b4329b?w=400&h=400&fit=crop&crop=center',
     description: 'Professional-grade shampoo that adds volume and thickness to fine hair.',
   },
   {
@@ -59,7 +60,7 @@ const products = [
     price: 19.50,
     rating: 4.5,
     reviews: 76,
-    image: '/images/products/hair-conditioner.jpg',
+    image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop&crop=center',
     description: 'Nourishing conditioner with keratin and biotin for stronger, healthier hair.',
   },
   {
@@ -70,7 +71,7 @@ const products = [
     price: 22.00,
     rating: 4.7,
     reviews: 94,
-    image: '/images/products/texture-spray.jpg',
+    image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=400&h=400&fit=crop&crop=center',
     description: 'Lightweight spray that adds texture and grip without weighing hair down.',
   },
   {
@@ -81,7 +82,7 @@ const products = [
     price: 16.99,
     rating: 4.4,
     reviews: 112,
-    image: '/images/products/hair-wax.jpg',
+    image: 'https://images.unsplash.com/photo-1503618747-6676b2c11f74?w=400&h=400&fit=crop&crop=center',
     description: 'Flexible wax for natural-looking styles with strong, long-lasting hold.',
   },
   {
@@ -92,7 +93,7 @@ const products = [
     price: 21.00,
     rating: 4.3,
     reviews: 58,
-    image: '/images/products/hair-tonic.jpg',
+    image: 'https://images.unsplash.com/photo-1567461622289-4c8cc37d5c8c?w=400&h=400&fit=crop&crop=center',
     description: 'Refreshing tonic that promotes healthy hair growth and adds natural shine.',
   },
   {
@@ -103,7 +104,7 @@ const products = [
     price: 14.99,
     rating: 4.2,
     reviews: 67,
-    image: '/images/products/dry-shampoo.jpg',
+    image: 'https://images.unsplash.com/photo-1522706604291-210a56c3b376?w=400&h=400&fit=crop&crop=center',
     description: 'Quick refresh between washes. Absorbs oil and adds volume instantly.',
   },
   {
@@ -114,7 +115,7 @@ const products = [
     price: 19.99,
     rating: 4.6,
     reviews: 43,
-    image: '/images/products/heat-protection.jpg',
+    image: 'https://images.unsplash.com/photo-1585652757141-099fc810ebd3?w=400&h=400&fit=crop&crop=center',
     description: 'Protects hair from heat damage while providing light hold and shine.',
   },
 
@@ -127,7 +128,7 @@ const products = [
     price: 28.00,
     rating: 4.9,
     reviews: 156,
-    image: '/images/products/beard-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=400&h=400&fit=crop&crop=center',
     description: 'Premium blend of argan and jojoba oils. Softens beard and moisturizes skin.',
     featured: true,
   },
@@ -139,7 +140,7 @@ const products = [
     price: 25.50,
     rating: 4.7,
     reviews: 98,
-    image: '/images/products/beard-balm.jpg',
+    image: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&crop=center',
     description: 'Natural balm with sandalwood scent. Shapes and conditions your beard.',
   },
   {
@@ -150,7 +151,7 @@ const products = [
     price: 17.99,
     rating: 4.5,
     reviews: 84,
-    image: '/images/products/beard-wash.jpg',
+    image: 'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?w=400&h=400&fit=crop&crop=center',
     description: 'Gentle cleanser specifically formulated for facial hair and sensitive skin.',
   },
   {
@@ -161,7 +162,7 @@ const products = [
     price: 12.99,
     rating: 4.4,
     reviews: 71,
-    image: '/images/products/mustache-wax.jpg',
+    image: 'https://images.unsplash.com/photo-1599351046484-a6b82448bb4e?w=400&h=400&fit=crop&crop=center',
     description: 'Strong hold wax for mustache styling. All-day hold with natural finish.',
   },
   {
@@ -172,7 +173,7 @@ const products = [
     price: 34.99,
     rating: 4.6,
     reviews: 52,
-    image: '/images/products/beard-growth.jpg',
+    image: 'https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop&crop=center',
     description: 'Advanced formula with biotin and vitamins to promote healthy beard growth.',
   },
   {
@@ -183,7 +184,7 @@ const products = [
     price: 15.00,
     rating: 4.8,
     reviews: 123,
-    image: '/images/products/beard-comb.jpg',
+    image: 'https://images.unsplash.com/photo-1595436007847-3e1ce6db5d58?w=400&h=400&fit=crop&crop=center',
     description: 'Handcrafted wooden comb with fine and wide teeth for all beard lengths.',
   },
 
@@ -196,7 +197,7 @@ const products = [
     price: 26.00,
     rating: 4.5,
     reviews: 89,
-    image: '/images/products/face-moisturizer.jpg',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
     description: 'Lightweight, non-greasy moisturizer with SPF 15 for daily protection.',
   },
   {
@@ -207,7 +208,7 @@ const products = [
     price: 19.99,
     rating: 4.4,
     reviews: 76,
-    image: '/images/products/face-wash.jpg',
+    image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=400&h=400&fit=crop&crop=center',
     description: 'Deep cleansing gel that removes dirt and oil without over-drying.',
   },
   {
@@ -218,7 +219,7 @@ const products = [
     price: 32.50,
     rating: 4.3,
     reviews: 45,
-    image: '/images/products/eye-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1556909114-16c8b3b5d15f?w=400&h=400&fit=crop&crop=center',
     description: 'Reduces fine lines and dark circles. Caffeine-infused formula.',
   },
   {
@@ -229,7 +230,7 @@ const products = [
     price: 22.00,
     rating: 4.6,
     reviews: 63,
-    image: '/images/products/face-scrub.jpg',
+    image: 'https://images.unsplash.com/photo-1556909078-bd29c85b11e2?w=400&h=400&fit=crop&crop=center',
     description: 'Gentle exfoliation with natural ingredients. Use 2-3 times per week.',
   },
   {
@@ -240,7 +241,7 @@ const products = [
     price: 23.99,
     rating: 4.7,
     reviews: 91,
-    image: '/images/products/aftershave-balm.jpg',
+    image: 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&h=400&fit=crop&crop=center',
     description: 'Soothing balm that calms irritation and moisturizes freshly shaved skin.',
   },
 
@@ -254,7 +255,7 @@ const products = [
     originalPrice: 109.99,
     rating: 4.8,
     reviews: 34,
-    image: '/images/products/hair-dryer.jpg',
+    image: 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=400&h=400&fit=crop&crop=center',
     description: 'Powerful 1800W dryer with ionic technology for faster drying and less frizz.',
     featured: true,
   },
@@ -266,7 +267,7 @@ const products = [
     price: 79.99,
     rating: 4.7,
     reviews: 78,
-    image: '/images/products/beard-trimmer.jpg',
+    image: 'https://images.unsplash.com/photo-1623289716811-4d4e6bb1c0f5?w=400&h=400&fit=crop&crop=center',
     description: 'Complete trimmer kit with multiple guards and precision attachments.',
   },
   {
@@ -277,7 +278,7 @@ const products = [
     price: 24.99,
     rating: 4.5,
     reviews: 41,
-    image: '/images/products/styling-brush.jpg',
+    image: 'https://images.unsplash.com/photo-1633681734188-ad2cf03e5935?w=400&h=400&fit=crop&crop=center',
     description: 'Natural boar bristle brush perfect for blow-drying and styling.',
   },
 
@@ -291,7 +292,7 @@ const products = [
     originalPrice: 179.99,
     rating: 4.9,
     reviews: 28,
-    image: '/images/products/shaving-kit.jpg',
+    image: 'https://images.unsplash.com/photo-1658189929896-e4e75e0e09a3?w=400&h=400&fit=crop&crop=center',
     description: 'Complete shaving set with safety razor, brush, stand, and premium soap.',
     featured: true,
   },
@@ -303,7 +304,7 @@ const products = [
     price: 45.00,
     rating: 4.6,
     reviews: 67,
-    image: '/images/products/toiletry-bag.jpg',
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center',
     description: 'Genuine leather toiletry bag with multiple compartments and water-resistant lining.',
   },
 ]
@@ -573,26 +574,45 @@ export default function ShopPage() {
           variants={containerVariants}
           className="mt-20"
         >
-          <motion.div variants={itemVariants} className="bg-amber-600 rounded-2xl p-12 text-white text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <motion.div variants={itemVariants} className="bg-gray-900 rounded-2xl p-12 text-white text-center">
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-6">
               Need Product Recommendations?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Our professional barbers can help you choose the perfect products for your hair type and style goals.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-4" asChild>
-                <a href="/book">Book Consultation</a>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-amber-600" 
-                asChild
+            </motion.h2>
+            <motion.p variants={itemVariants} className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Our professional barbers can help you choose the perfect products for your hair type and style goals. 
+              Get expert advice and premium results.
+            </motion.p>
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(245, 158, 11, 0.4)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <a href="/contact">Ask Our Experts</a>
-              </Button>
-            </div>
+                <Button size="lg" className="text-lg px-8 py-4 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold" asChild>
+                  <Link href="/book">Book Consultation</Link>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-lg px-8 py-4 border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 bg-transparent font-semibold" 
+                  asChild
+                >
+                  <Link href="/contact">Ask Our Experts</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
