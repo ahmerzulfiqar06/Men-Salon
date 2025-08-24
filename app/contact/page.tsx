@@ -80,25 +80,33 @@ export default function ContactPage() {
     setIsSubmitting(true)
     
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      // For static deployment, we'll create a mailto link with contact details
+      const contactDetails = `
+Contact Form Submission:
 
-      if (response.ok) {
-        setIsSuccess(true)
-        reset()
-        setTimeout(() => setIsSuccess(false), 5000)
-      } else {
-        const errorData = await response.json()
-        alert(errorData.error || 'Failed to send message')
-      }
+Name: ${data.name}
+Email: ${data.email}
+${data.phone ? `Phone: ${data.phone}` : ''}
+
+Subject: ${data.subject}
+
+Message:
+${data.message}
+      `.trim()
+
+      const subject = `Contact Form: ${data.subject}`
+      const mailtoLink = `mailto:${process.env.NEXT_PUBLIC_SALON_EMAIL_TO || 'info@clipperz.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(contactDetails)}`
+      
+      // Open email client
+      window.location.href = mailtoLink
+      
+      // Show success state
+      setIsSuccess(true)
+      reset()
+      setTimeout(() => setIsSuccess(false), 8000)
     } catch (error) {
       console.error('Contact form submission error:', error)
-      alert('Failed to send message. Please try again.')
+      alert('Failed to open email client. Please call us directly at ' + (process.env.NEXT_PUBLIC_SALON_PHONE || '(555) 123-4567'))
     } finally {
       setIsSubmitting(false)
     }
@@ -177,7 +185,7 @@ export default function ContactPage() {
                     >
                       <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                                         <p className="text-green-800">
-                    Thank you for your message! We&apos;ll get back to you within 24 hours.
+                    Your email client should have opened with your message. Please send the email and we&apos;ll get back to you within 24 hours.
                   </p>
                     </motion.div>
                   )}

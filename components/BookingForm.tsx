@@ -76,26 +76,39 @@ export default function BookingForm() {
     setIsSubmitting(true)
     
     try {
-      const response = await fetch('/api/book', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      // For static deployment, we'll create a mailto link with booking details
+      const bookingDetails = `
+Booking Request Details:
 
-      if (response.ok) {
-        setSubmittedData(data)
-        setIsSuccess(true)
-        reset()
-        setSelectedAddOns([])
-      } else {
-        const errorData = await response.json()
-        alert(errorData.error || 'Failed to submit booking')
-      }
+Service: ${data.service}
+Add-ons: ${data.addOns.length > 0 ? data.addOns.join(', ') : 'None'}
+${data.barber && data.barber !== 'any' ? `Barber Preference: ${data.barber}` : ''}
+Preferred Date: ${data.preferredDate}
+Preferred Time: ${data.preferredTime}
+
+Customer Information:
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+${data.notes ? `Notes: ${data.notes}` : ''}
+
+Estimated Total: $${totalPrice}
+      `.trim()
+
+      const subject = 'Booking Request - CLIPPERZ Salon'
+      const mailtoLink = `mailto:${process.env.NEXT_PUBLIC_SALON_EMAIL_TO || 'info@clipperz.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bookingDetails)}`
+      
+      // Open email client
+      window.location.href = mailtoLink
+      
+      // Show success state
+      setSubmittedData(data)
+      setIsSuccess(true)
+      reset()
+      setSelectedAddOns([])
     } catch (error) {
       console.error('Booking submission error:', error)
-      alert('Failed to submit booking. Please try again.')
+      alert('Failed to open email client. Please call us directly at ' + (process.env.NEXT_PUBLIC_SALON_PHONE || '(555) 123-4567'))
     } finally {
       setIsSubmitting(false)
     }
@@ -136,7 +149,7 @@ export default function BookingForm() {
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Booking Confirmed!</h2>
           <p className="text-lg text-gray-600 mb-6">
-            Thank you for your booking request. We&apos;ll contact you within 24 hours to confirm your appointment.
+            Your email client should have opened with your booking details. Please send the email and we&apos;ll contact you within 24 hours to confirm your appointment.
           </p>
         </div>
 
