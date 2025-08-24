@@ -185,7 +185,7 @@ export async function sendContactEmail(data: ContactFormData) {
       to: process.env.SALON_EMAIL_TO!,
       subject: `Contact Form: ${subject}`,
       html: emailHtml,
-      replyTo: email,
+      reply_to: email,
     })
 
     return { success: true }
